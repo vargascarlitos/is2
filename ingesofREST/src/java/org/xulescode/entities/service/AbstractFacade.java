@@ -67,7 +67,7 @@ public abstract class AbstractFacade<T> {
         String consulta = "select * from usuario u where u.cedula = " 
             + user.getCedula() + " AND u.contrase\u00f1a = \'" + user.getContraseña() + "\';";
         
-            javax.persistence.Query q = getEntityManager().createNativeQuery(consulta);
+           javax.persistence.Query q = getEntityManager().createNativeQuery(consulta);
            List usuarioLog = q.getResultList();
            if (usuarioLog.size()>0){
                 return "true";
