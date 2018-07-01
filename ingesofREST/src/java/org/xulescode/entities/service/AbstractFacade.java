@@ -9,6 +9,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import org.xulescode.entities.Usuario;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -63,16 +66,20 @@ public abstract class AbstractFacade<T> {
         return ((Long) q.getSingleResult()).intValue();
     }
 
-    public String login(Usuario user) {
-        String consulta = "select * from usuario u where u.cedula = " 
+    public String login(Usuario user) throws JSONException {
+        String consulta = "select nombre from usuario u where u.cedula = " 
             + user.getCedula() + " AND u.contrase\u00f1a = \'" + user.getContraseña() + "\';";
         
            javax.persistence.Query q = getEntityManager().createNativeQuery(consulta);
            List usuarioLog = q.getResultList();
+           JSONObject json = new JSONObject();
            if (usuarioLog.size()>0){
-                return "true";
-            }
-            else
+                String respuesta = (String)q.getSingleResult();
+                String[] partes = respuesta.split(",");
+                json.put("nombre", partes[0]);
+                return json.toString();
+           }
+           else
             {
                 return "false";
             }

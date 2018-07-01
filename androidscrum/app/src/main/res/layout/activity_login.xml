@@ -1,32 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.user.androidscrum.loginActivity">
+    android:layout_height="wrap_content"
+    tools:context="com.example.user.androidscrum.loginActivity"
+    android:orientation="vertical"
+    android:paddingLeft="80dp"
+    android:paddingRight="80dp"
+    android:paddingTop="80dp"
+    android:gravity="center_horizontal">
 
-    <LinearLayout
-        android:paddingTop="100dp"
+    <EditText
+        android:id="@+id/txtUser"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:hint="Usuario"/>
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:hint="Contrasenha"/>
-        <Button
-            android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="LOGIN"/>
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:hint="@string/t_user"
+        android:inputType="textEmailAddress"/>
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/txtPwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/t_pwd"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/t_boton" />
+</LinearLayout>

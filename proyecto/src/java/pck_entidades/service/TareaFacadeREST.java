@@ -18,6 +18,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.json.JSONException;
 import pck_entidades.Tarea;
 
 /**
@@ -81,6 +82,12 @@ public class TareaFacadeREST extends AbstractFacade<Tarea> {
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
         return String.valueOf(super.count());
+    }
+    @GET
+    @Path("/listartarea/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listarTareaUs(@PathParam("id") Integer id) throws JSONException {
+        return super.listarTareaUs(id);
     }
 
     @Override

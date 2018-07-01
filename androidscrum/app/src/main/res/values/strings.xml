@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">androidscrum</string>
+    <string name="app_name">LOGIN</string>
+    <string name="t_user">usuario </string>string>
+    <string name="t_pwd">contrasenha </string>string>
+    <string name="t_boton">iniciar sesion </string>string>
 </resources>

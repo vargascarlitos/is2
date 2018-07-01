@@ -18,6 +18,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.json.JSONException;
 import pck_entidades.Usuario;
 
 /**
@@ -83,6 +84,14 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
         return String.valueOf(super.count());
     }
 
+    @POST
+    @Path("login")
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String login(Usuario usuario) throws JSONException {
+      return super.login(usuario);
+    }
+    
     @Override
     protected EntityManager getEntityManager() {
         return em;
