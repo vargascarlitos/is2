@@ -96,5 +96,40 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
     protected EntityManager getEntityManager() {
         return em;
     }
+    @GET
+    @Path("/listarus/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listarUsuario(@PathParam("id") Integer id) throws JSONException {
+        return super.listarUsuario(id);
+    }
     
+    @POST
+    @Path("/agregarusuario")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String agregarUsuario(Usuario user) throws JSONException {
+        return super.agregarUsuario(user);
+    }
+    
+    @PUT
+    @Path("/editarusuarioxscrum")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String editarUsuarioxSc(Usuario user) throws JSONException {
+        return super.editarUsuarioxSc(user);
+    }
+    
+    @PUT
+    @Path("/editarusuario")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String editarUsuario(Usuario user) throws JSONException {
+        return super.editarUsuario(user);
+    }
+    @GET
+    @Path("/eliminarus/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String eliminarUs(@PathParam("id") Integer id) throws JSONException {
+        return super.eliminarUs(id);
+    }
 }

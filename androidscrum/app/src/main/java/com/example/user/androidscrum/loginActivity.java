@@ -56,14 +56,17 @@ public class loginActivity extends AppCompatActivity  implements Response.Listen
         //startActivity(menu);
         //finish();
        try {
-            String id = response.getString("idusuario");
-           //int id = response.getInt("idusuario");
+           String nomUs = response.getString("nombre");
+           String nomRol = response.getString("nombrerol");
+           String id = response.getString("idusuario");
            int rol = response.getInt("idrol");
                Toast.makeText(loginActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                 Intent menu = new Intent();
                 if (rol == 2) {
                   menu = new Intent(loginActivity.this, menuUsuarioActivity.class);
                 }
+                menu.putExtra("nomUs", nomUs);
+                menu.putExtra("nomRol", nomRol);
                 menu.putExtra("id", id);
                 menu.putExtra("rol", rol + "");
                 startActivity(menu);

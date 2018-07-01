@@ -18,8 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".menuUsuarioActivity"></activity>
-        <activity android:name=".tareaUsuario"></activity>
+        <activity android:name=".menuUsuarioActivity" />
+        <activity android:name=".tareaUsuario" />
+        <activity android:name=".datoTareaUsuarioActivity"></activity>
     </application>
 
 </manifest>

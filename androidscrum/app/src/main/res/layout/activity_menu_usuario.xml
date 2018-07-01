@@ -14,33 +14,23 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="16dp" />
-
     <TextView
-        android:layout_width="176dp"
-        android:layout_height="31dp"
-        android:text="INSERTAR ID PROYECTO"
+        android:id="@+id/cajaBien"
+        android:layout_width="178dp"
+        android:layout_height="27dp"
+        android:text="Bienvenido :"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp" />
+    <TextView
+        android:id="@+id/cajaBienRol"
+        android:layout_width="178dp"
+        android:layout_height="27dp"
+        android:text="Rol :"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="16dp" />
 
-    <EditText
-        android:id="@+id/txtIdPro"
-        android:layout_width="177dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="16dp" />
-
-    <Button
-        android:id="@+id/btnObtnerPro"
-        android:layout_width="174dp"
-        android:layout_height="wrap_content"
-        android:text="VER PROYECTO"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="16dp" />
 
     <Button
         android:id="@+id/btnVerMiTarea"

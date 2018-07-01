@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.androidscrum.loginActivity"
+    android:orientation="vertical"
+    android:paddingLeft="80dp"
+    android:paddingRight="80dp"
+    android:paddingTop="80dp"
+    android:gravity="center_horizontal">
+
+    <EditText
+        android:id="@+id/txtEstnew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar Estado"
+        android:inputType="textEmailAddress"/>
+
+
+    <Button
+        android:id="@+id/btnModifTaUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MODIFICAR" />
+</LinearLayout>
+

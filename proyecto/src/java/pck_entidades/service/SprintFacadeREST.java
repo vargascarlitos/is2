@@ -18,7 +18,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.json.JSONException;
 import pck_entidades.Sprint;
+import pck_entidades.Tarea;
 
 /**
  *
@@ -82,7 +84,29 @@ public class SprintFacadeREST extends AbstractFacade<Sprint> {
     public String countREST() {
         return String.valueOf(super.count());
     }
-
+    
+    @PUT
+    @Path("/editarsprint")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String EditarSprint(Sprint sprint) throws JSONException {
+        return super.EditarSprint(sprint);
+    }
+    @GET
+    @Path("/listarsprint/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listaSprint(@PathParam("id") Integer id) throws JSONException {
+        return super.listaSprint(id);
+    }
+    
+    @POST
+    @Path("/agregarsprint")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String agregarSprint(Sprint sprint) throws JSONException {
+        return super.agregarSprint(sprint);
+    }
+    
     @Override
     protected EntityManager getEntityManager() {
         return em;

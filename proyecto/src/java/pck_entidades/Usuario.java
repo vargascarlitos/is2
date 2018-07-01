@@ -174,4 +174,18 @@ public class Usuario implements Serializable {
         return "pck_entidades.Usuario[ idusuario=" + idusuario + " ]";
     }
     
+    public Rol getRol() {
+        return idrol;
+    }
+
+    public void Rol(Rol idrol) {
+        this.idrol = idrol;
+    }
+    public Equipo getEquipo() {
+        return idequipo;
+    }
+
+    public void setEquipo(Equipo idus) {
+        this.idequipo = idequipo;
+    }
 }

@@ -18,7 +18,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.json.JSONException;
 import pck_entidades.Proyecto;
+import pck_entidades.Usuario;
 
 /**
  *
@@ -82,10 +84,16 @@ public class ProyectoFacadeREST extends AbstractFacade<Proyecto> {
     public String countREST() {
         return String.valueOf(super.count());
     }
-
+    @POST
+    @Path("/agregarproyecto")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String agregarProyecto(Proyecto proyecto) throws JSONException {
+        return super.agregarProyecto(proyecto);
+    }
+  
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-    
 }

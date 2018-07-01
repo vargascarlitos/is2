@@ -89,10 +89,23 @@ public class TareaFacadeREST extends AbstractFacade<Tarea> {
     public String listarTareaUs(@PathParam("id") Integer id) throws JSONException {
         return super.listarTareaUs(id);
     }
+    @PUT
+    @Path("/editartareaus")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String EditarTareaUs(Tarea tarea) throws JSONException {
+        return super.EditarTareaUs(tarea);
+    }
 
     @Override
     protected EntityManager getEntityManager() {
         return em;
+    }
+    @GET
+    @Path("/eliminartarea/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String eliminarTarea(@PathParam("id") Integer id) throws JSONException {
+        return super.eliminarTarea(id);
     }
     
 }

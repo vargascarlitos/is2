@@ -1,7 +1,10 @@
 package com.example.user.androidscrum;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -39,6 +42,14 @@ public class tareaUsuario extends AppCompatActivity {
         v_idTarea = new ArrayList<Integer>();
         adapter = new ArrayAdapter<String>(tareaUsuario.this, R.layout.list_usuario, v_tareaNombre);
         listV.setAdapter(adapter);
+        listV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent dato = new Intent(tareaUsuario.this, datoTareaUsuarioActivity.class);
+                dato.putExtra("id", v_idTarea.get(i).toString());
+                startActivity(dato);
+            }
+        });
     }
     @Override
     protected void onResume() {

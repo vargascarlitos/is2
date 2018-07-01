@@ -153,5 +153,13 @@ public class Sprint implements Serializable {
     public String toString() {
         return "pck_entidades.Sprint[ idsprint=" + idsprint + " ]";
     }
+
+public Userhistories getUserhistories() {
+        return idus;
+    }
+
+    public void setUserhistories(Userhistories idus) {
+        this.idus = idus;
+    }
     
 }
