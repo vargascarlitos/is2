@@ -22,7 +22,7 @@
         <activity android:name=".tareaUsuario" />
         <activity android:name=".datoTareaUsuarioActivity" />
         <activity android:name=".cuentaActivity" />
-        <activity android:name=".MainScrumActivity"></activity>
+        <activity android:name=".admUsuarioActivity"></activity>
     </application>
 
 </manifest>
