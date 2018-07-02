@@ -14,6 +14,7 @@ public class menuUsuarioActivity extends AppCompatActivity {
     private String nomR;
     Button btnCerrar;
     Button btnTareaUs;
+    Button btnConf;
     TextView bien;
     TextView bienRol;
 
@@ -27,6 +28,7 @@ public class menuUsuarioActivity extends AppCompatActivity {
         nomR = getIntent().getStringExtra("nomRol");
         btnTareaUs = (Button) findViewById(R.id.btnVerMiTarea);
         btnCerrar = (Button) findViewById(R.id.btnCerrarS);
+        btnConf = (Button) findViewById(R.id.btnConfigUs);
         bien = (TextView) findViewById(R.id.cajaBien);
         bienRol = (TextView) findViewById(R.id.cajaBienRol);
         bien.setText("bienvenido : "+ nomU);
@@ -36,6 +38,12 @@ public class menuUsuarioActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TareaUs();
+            }
+        });
+        btnConf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ConfigurarUsuario();
             }
         });
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +58,12 @@ public class menuUsuarioActivity extends AppCompatActivity {
         Intent sprint = new Intent(this, tareaUsuario.class);
         sprint.putExtra("idUs", idUs);
         startActivity(sprint);
+    }
+
+    public void ConfigurarUsuario (){
+        Intent cuenta = new Intent(this, cuentaActivity.class);
+        cuenta.putExtra("idUs", idUs);
+        startActivity(cuenta);
     }
 
 

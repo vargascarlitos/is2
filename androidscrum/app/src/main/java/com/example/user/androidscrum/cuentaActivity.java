@@ -17,34 +17,45 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class datoTareaUsuarioActivity extends AppCompatActivity {
-    private EditText cajaEstadonew;
-    private String id;
-    private Button btnEstus;
+public class cuentaActivity extends AppCompatActivity {
+    EditText cajaNom;
+    EditText cajaApe;
+    EditText cajaCo;
+    EditText cajaCon;
+    Button btnModUs;
+    String idUs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dato_tarea_usuario);
-        cajaEstadonew= (EditText) findViewById(R.id.txtEstnew);
-        btnEstus= (Button) findViewById(R.id.btnModifTaUs);
-        id = getIntent().getStringExtra("id");
-        btnEstus.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_cuenta);
+        cajaNom= (EditText) findViewById(R.id.txtnewNom);
+        cajaApe= (EditText) findViewById(R.id.txtnewApe);
+        cajaCo= (EditText) findViewById(R.id.txtnewCorreo);
+        cajaCon= (EditText) findViewById(R.id.txtnewCon);
+        btnModUs= (Button) findViewById(R.id.btnModUs);
+        idUs = getIntent().getStringExtra("idUs");
+        btnModUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                modificarTareaUs();
+                modificarUsuario();
             }
         });
     }
-
-    public void modificarTareaUs() {
-        String URL =  "http://169.254.118.241:8080/proyecto/webresources/pck_entidades.tarea/editartareaus";
-        String estado = cajaEstadonew.getText().toString();
+    public void modificarUsuario() {
+        String URL =  "http://169.254.118.241:8080/proyecto/webresources/pck_entidades.usuario/editarusuario";
+        String nombre = cajaNom.getText().toString();
+        String apellido = cajaApe.getText().toString();
+        String correo = cajaCo.getText().toString();
+        String contrasenha = cajaCon.getText().toString();
         RequestQueue queue = Volley.newRequestQueue(this);
         JSONObject json = new JSONObject();
         try {
-            json.put("estado", estado);
-            json.put("idtarea", id);
+            json.put("idusuario", idUs);
+            json.put("nombre", nombre);
+            json.put("apellido", apellido);
+            json.put("correo", correo);
+            json.put("contrasenha", contrasenha);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -53,7 +64,7 @@ public class datoTareaUsuarioActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     if(response.getBoolean("respuesta")){
-                        Toast.makeText(datoTareaUsuarioActivity.this, "Estado actualizado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(cuentaActivity.this, "Estado actualizado", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 } catch (JSONException e) {
@@ -63,7 +74,7 @@ public class datoTareaUsuarioActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(datoTareaUsuarioActivity.this, "ERROR"+id, Toast.LENGTH_SHORT).show();
+                Toast.makeText(cuentaActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
             }
         });
         queue.add(solicitud);

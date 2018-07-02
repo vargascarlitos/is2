@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.androidscrum.loginActivity"
+    android:orientation="vertical"
+    android:paddingLeft="80dp"
+    android:paddingRight="80dp"
+    android:paddingTop="80dp"
+    android:gravity="center_horizontal">
+
+    <EditText
+        android:id="@+id/txtnewNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar Nombre nuevo"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewApe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar Apellido nuevo"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar correo nuevo"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewCon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar contrasenha nuevo"
+        android:inputType="textEmailAddress"/>
+
+    <Button
+        android:id="@+id/btnModUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MODIFICAR" />
+</LinearLayout>
