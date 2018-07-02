@@ -59,6 +59,7 @@ public class loginActivity extends AppCompatActivity  implements Response.Listen
            String nomUs = response.getString("nombre");
            String nomRol = response.getString("nombrerol");
            String id = response.getString("idusuario");
+           String idE = response.getString("idequipo");
            int rol = response.getInt("idrol");
                Toast.makeText(loginActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                 Intent menu = new Intent();
@@ -70,6 +71,7 @@ public class loginActivity extends AppCompatActivity  implements Response.Listen
                 menu.putExtra("nomUs", nomUs);
                 menu.putExtra("nomRol", nomRol);
                 menu.putExtra("id", id);
+                menu.putExtra("idE", idE);
                 menu.putExtra("rol", rol + "");
                 startActivity(menu);
                 finish();
@@ -79,7 +81,7 @@ public class loginActivity extends AppCompatActivity  implements Response.Listen
 
     }
     private void iniciarSesion(){
-        String URL = "http://192.168.1.51:14606/proyecto/webresources/pck_entidades.usuario/login";
+        String URL = "http://169.254.118.241:8080/proyecto/webresources/pck_entidades.usuario/login";
         String us = cajaUser.getText().toString();
         String pq = cajaPwd.getText().toString();
         JSONObject json = new JSONObject();

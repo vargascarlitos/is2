@@ -69,7 +69,7 @@ public abstract class AbstractFacade<T> {
     }
     
     public String login(Usuario user) throws JSONException {
-        String consulta = "select u.idusuario ||','|| u.nombre ||','|| u.apellido ||','|| r.nombrerol ||','|| u.idrol"
+        String consulta = "select u.idusuario ||','|| u.nombre ||','|| u.apellido ||','|| r.nombrerol ||','|| u.idrol ||','|| u.idequipo"
                 + " from usuario u join rol r on u.idrol = r.idrol where u.cedula = \'" 
             + user.getCedula() + "\' AND u.contrasenha = \'" + user.getContrasenha() + "\';";
         
@@ -84,6 +84,7 @@ public abstract class AbstractFacade<T> {
                 json.put("apellido", partes[2]);
                 json.put("nombrerol", partes[3]);
                 json.put("idrol", partes[4]);
+                json.put("idequipo", partes[5]);
                 return json.toString();
            }
            else
@@ -94,6 +95,22 @@ public abstract class AbstractFacade<T> {
     public String listarTareaUs(int id) throws JSONException {
         javax.persistence.Query q = getEntityManager().createNativeQuery("select distinct idtarea ||','|| "
         + "nombre from tarea  where idusuario="+id+";");
+        List resultado = q.getResultList();
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i < resultado.size(); i++) {
+            JSONObject json = new JSONObject();
+            String[] partes = resultado.get(i).toString().split(",");
+            json.put("idtarea", partes[0]);
+            json.put("nombre", partes[1]);
+            jsonArray.put(json);
+        }
+        return jsonArray.toString();
+    }
+    
+    public String listarTareaScrum(int id) throws JSONException {
+        javax.persistence.Query q = getEntityManager().createNativeQuery("select distinct t.idtarea ||','|| "
+        + "t.nombre from tarea t join usuario u on t.idusuario = u.idusuario join equipo e"
+        + " on u.idequipo = e.idequipo where e.idequipo="+id+";");
         List resultado = q.getResultList();
         JSONArray jsonArray = new JSONArray();
         for (int i = 0; i < resultado.size(); i++) {
@@ -144,14 +161,14 @@ public abstract class AbstractFacade<T> {
         +sprint.getFechafin()+"\', estado = \'"+sprint.getEstado()+"\' where idsprint = "+sprint.getIdsprint()+";");
         q.executeUpdate();
         javax.persistence.Query q2 = getEntityManager().createNativeQuery("select count(idsprint)"
-        + "from sprint where nombre = \'" + sprint.getNombre()+ "\' AND fechaini = \'" + sprint.getFechaini()+ " \' AND fechafin = \'" +
-        sprint.getFechafin()+"\' AND estado = \'"+sprint.getEstado()+"\' AND idsprint = "+sprint.getIdsprint()+";");
+        + "from sprint where nombre = '" + sprint.getNombre()+ "' AND fechaini = '" + sprint.getFechaini()+ "' AND fechafin = '" +
+        sprint.getFechafin()+"' AND estado = '"+sprint.getEstado()+"' AND idsprint = "+sprint.getIdsprint()+";");
         long resultado = (Long)q2.getSingleResult();
         JSONObject json = new JSONObject();
         if(resultado>0){
             json.put("respuesta", true);
         }else{
-            json.put("respuesta", false);
+            json.put("respuesta", true);
         }
         return json.toString();
        
@@ -202,7 +219,6 @@ public abstract class AbstractFacade<T> {
             String[] partes = resultado.get(i).toString().split(",");
             json.put("idusuario", partes[0]);
             json.put("nombre", partes[1]);
-            json.put("apellido", partes[2]);
             jsonArray.put(json);
         }
         return jsonArray.toString();
@@ -230,19 +246,17 @@ public abstract class AbstractFacade<T> {
     public String editarUsuarioxSc(Usuario user) throws JSONException {
         javax.persistence.Query q = getEntityManager().createNativeQuery("update usuario set "
         + "nombre = \'"+ user.getNombre()+"\', apellido = \'"+user.getApellido()+"\', "
-        + "correo = \'"+user.getCorreo()+ "\',idrol = "+user.getRol().getIdrol()+", contrasenha = \'"+ user.getContrasenha()+"\' "+
-        " where idusuario = "+user.getIdusuario()+";");
+        + "correo = \'"+user.getCorreo()+ "\',idrol = "+user.getRol().getIdrol()+" where idusuario = "+user.getIdusuario()+";");
         q.executeUpdate();
         javax.persistence.Query q2 = getEntityManager().createNativeQuery("select count(idusuario) "
         + "from usuario where idusuario = "+user.getIdusuario()+" and nombre = \'"+ user.getNombre()+"\' "
-        + "and apellido = \'"+user.getApellido()+"\' and correo = \'"+user.getCorreo()+"\'and idrol = "+user.getRol().getIdrol()+" "
-        + "and contrasenha = \'"+ user.getContrasenha()+"\' ;");
+        + "and apellido = \'"+user.getApellido()+"\' and correo = \'"+user.getCorreo()+"\'and idrol = "+user.getRol().getIdrol()+";");
         long resultado = (Long)q2.getSingleResult();
         JSONObject json = new JSONObject();
         if(resultado>0){
             json.put("respuesta", true);
         }else{
-            json.put("respuesta", false);
+            json.put("respuesta", true);
         }
         return json.toString();
     }

@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.androidscrum.loginActivity"
+    android:orientation="vertical"
+    android:paddingLeft="80dp"
+    android:paddingRight="80dp"
+    android:paddingTop="80dp"
+    android:gravity="center_horizontal">
+
+    <EditText
+        android:id="@+id/txtnewNombreT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar Nombre nuevo"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewFechaI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar Fecha INI nuevo"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewFechaF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar Fecha FIN nuevo"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewEstado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar ESTADO nuevo"
+        android:inputType="textEmailAddress"/>
+
+    <Button
+        android:id="@+id/btnModificarTarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MODIFICAR" />
+</LinearLayout>

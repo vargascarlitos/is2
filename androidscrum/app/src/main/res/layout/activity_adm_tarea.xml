@@ -1,9 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admTareaActivity">
+    android:orientation="vertical"
+    tools:context="com.example.user.androidscrum.menuUsuarioActivity"
+    android:gravity="center_horizontal">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="178dp"
+        android:layout_height="27dp"
+        android:text="ADMINISTRAR"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp" />
+
+    <Button
+        android:id="@+id/btnEliminarTarea"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:text="Eliminar"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp" />
+    <Button
+        android:id="@+id/btnModificarTarea"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:text="Modificar"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp" />
+    <Button
+        android:id="@+id/btnAgregarTarea"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:text="agregar"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp" />
+
+
+
+</LinearLayout>
+

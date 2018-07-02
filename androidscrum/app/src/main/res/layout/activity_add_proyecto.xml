@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.androidscrum.loginActivity"
+    android:orientation="vertical"
+    android:paddingLeft="80dp"
+    android:paddingRight="80dp"
+    android:paddingTop="80dp"
+    android:gravity="center_horizontal">
+
+    <EditText
+        android:id="@+id/txtnewIDpro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar  ID"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewNpro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar NOMBRE"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewDESC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar DESCRIPCION"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewFinipro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar FECHA INI"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/txtnewFfinpro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar FECHA FIN"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewEpro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar ESTADO"
+        android:inputType="textEmailAddress"/>
+    <Button
+        android:id="@+id/btnAddPro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CREAR PRO" />
+</LinearLayout>

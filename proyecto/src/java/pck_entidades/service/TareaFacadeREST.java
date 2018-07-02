@@ -89,6 +89,12 @@ public class TareaFacadeREST extends AbstractFacade<Tarea> {
     public String listarTareaUs(@PathParam("id") Integer id) throws JSONException {
         return super.listarTareaUs(id);
     }
+    @GET
+    @Path("/listartareascrum/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listarTareaScrum(@PathParam("id") Integer id) throws JSONException {
+        return super.listarTareaScrum(id);
+    }
     @PUT
     @Path("/editartareaus")
     @Consumes(MediaType.APPLICATION_JSON)

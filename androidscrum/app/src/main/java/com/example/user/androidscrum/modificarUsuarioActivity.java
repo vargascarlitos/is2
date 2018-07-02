@@ -13,7 +13,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -23,30 +22,29 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class tareaUsuario extends AppCompatActivity {
-    ListView listV;
+public class modificarUsuarioActivity extends AppCompatActivity {
+    ListView listUsModif;
     RequestQueue rq;
     StringRequest peticion;
-    private String idUs;
-    private ArrayList<String> v_tareaNombre;
-    private ArrayList<Integer> v_idTarea;
+    private String idE;
+    private ArrayList<String> v_Nus;
+    private ArrayList<Integer> v_idU;
     private ArrayAdapter<String> adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tarea_usuario);
-        listV = (ListView)findViewById(R.id.lvTareaUs);
-        idUs = getIntent().getStringExtra("idUs");
-        v_tareaNombre = new ArrayList<String>();
-        v_idTarea = new ArrayList<Integer>();
-        adapter = new ArrayAdapter<String>(tareaUsuario.this, R.layout.list_usuario, v_tareaNombre);
-        listV.setAdapter(adapter);
-        listV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        setContentView(R.layout.activity_modificar_usuario);
+        listUsModif = (ListView)findViewById(R.id.lvModificarUsuario);
+        idE = getIntent().getStringExtra("idE");
+        v_Nus = new ArrayList<String>();
+        v_idU = new ArrayList<Integer>();
+        adapter = new ArrayAdapter<String>(modificarUsuarioActivity.this, R.layout.list_usuario, v_Nus);
+        listUsModif.setAdapter(adapter);
+        listUsModif.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent dato = new Intent(tareaUsuario.this, datoTareaUsuarioActivity.class);
-                dato.putExtra("id", v_idTarea.get(i).toString());
+                Intent dato = new Intent(modificarUsuarioActivity.this, leerModificarUsuarioActivity.class);
+                dato.putExtra("idUs", v_idU.get(i).toString());
                 startActivity(dato);
             }
         });
@@ -54,16 +52,15 @@ public class tareaUsuario extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        listarSprint();
+        listarU();
     }
 
-    public void listarSprint(){
-        String URL = "http://169.254.118.241:8080/proyecto/webresources/pck_entidades.tarea/listartarea/"+idUs;
-                //path + "sprint/listar/miembro/"+idUser;
+    public void listarU(){
+        String URL = "http://169.254.118.241:8080/proyecto/webresources/pck_entidades.usuario/listarus/"+idE;
         rq = Volley.newRequestQueue(this);
         adapter.clear();
-        v_idTarea.clear();
-        v_tareaNombre.clear();
+        v_idU.clear();
+        v_Nus.clear();
         peticion = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -72,8 +69,8 @@ public class tareaUsuario extends AppCompatActivity {
                     jsonArray = new JSONArray(response);
                     for (int i=0;i<=jsonArray.length();i++){
                         JSONObject json = new JSONObject(jsonArray.get(i).toString());
-                        v_idTarea.add(Integer.parseInt(json.getString("idtarea")));
-                        v_tareaNombre.add(json.getString("nombre"));
+                        v_idU.add(Integer.parseInt(json.getString("idusuario")));
+                        v_Nus.add(json.getString("nombre"));
                         adapter.notifyDataSetChanged();
                     }
                 } catch (JSONException e) {
@@ -83,9 +80,9 @@ public class tareaUsuario extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(tareaUsuario.this, "Ocurrio un error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(modificarUsuarioActivity.this, "Ocurrio un error", Toast.LENGTH_SHORT).show();
             }
         });
         rq.add(peticion);
     }
-}
+    }

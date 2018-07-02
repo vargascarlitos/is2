@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.androidscrum.loginActivity"
+    android:orientation="vertical"
+    android:paddingLeft="80dp"
+    android:paddingRight="80dp"
+    android:paddingTop="80dp"
+    android:gravity="center_horizontal">
+
+    <EditText
+        android:id="@+id/txtnewIdSprint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar ID"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewNombreSprint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar Nombre"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewFechaIni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar Fecha INI"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewFechaFin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar Fecha FIN "
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewEstadoSprint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar ESTADO"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/txtnewIdUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar US"
+        android:inputType="textEmailAddress"/>
+
+    <Button
+        android:id="@+id/btnaddTarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="agregar" />
+</LinearLayout>

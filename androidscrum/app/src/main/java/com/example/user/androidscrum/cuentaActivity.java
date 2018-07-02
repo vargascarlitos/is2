@@ -64,7 +64,7 @@ public class cuentaActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     if(response.getBoolean("respuesta")){
-                        Toast.makeText(cuentaActivity.this, "Estado actualizado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(cuentaActivity.this, "Cuenta actualizada", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 } catch (JSONException e) {

@@ -12,6 +12,7 @@ public class MainScrumActivity extends AppCompatActivity {
     private String idRol;
     private String nomU;
     private String nomR;
+    private String idE;
     Button btnAdnt;
     Button btnAdmU;
     Button btnMcuenta;
@@ -25,6 +26,7 @@ public class MainScrumActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_scrum);
         idUs = getIntent().getStringExtra("id");
         idRol = getIntent().getStringExtra("rol");
+        idE = getIntent().getStringExtra("idE");
         nomU = getIntent().getStringExtra("nomUs");
         nomR = getIntent().getStringExtra("nomRol");
         btnAdnt = (Button) findViewById(R.id.btnAdmTarea);
@@ -37,6 +39,32 @@ public class MainScrumActivity extends AppCompatActivity {
         bien.setText("bienvenido : "+ nomU);
         bienRol.setText("Tu rol es :" + nomR);
 
+        btnAdnt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                admtarea();
+            }
+        });
+        btnAdmU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                admusuario();
+            }
+        });
+        btnMcuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ConfigurarUsuario();
+            }
+        });
+
+        btnCrearP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addProyecto();
+            }
+        });
+
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,7 +72,29 @@ public class MainScrumActivity extends AppCompatActivity {
             }
         });
     }
-
+    public void admtarea(){
+        Intent admt = new Intent(this, admTareaActivity.class);
+        admt.putExtra("idUs", idUs);
+        admt.putExtra("idE", idE);
+        startActivity(admt);
+        finish();
+    }
+    public void admusuario(){
+        Intent admt = new Intent(this, admUsuarioActivity.class);
+        admt.putExtra("idUs", idUs);
+        admt.putExtra("idE", idE);
+        startActivity(admt);
+        finish();
+    }
+    public void ConfigurarUsuario (){
+        Intent cuenta = new Intent(this, cuentaActivity.class);
+        cuenta.putExtra("idUs", idUs);
+        startActivity(cuenta);
+    }
+    public void addProyecto (){
+        Intent addP = new Intent(this, addProyectoActivity.class);
+        startActivity(addP);
+    }
     public void cerrarSesion(){
         Intent login = new Intent(this, loginActivity.class);
         startActivity(login);
