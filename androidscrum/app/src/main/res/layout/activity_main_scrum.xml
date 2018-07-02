@@ -1,0 +1,79 @@
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.androidscrum.menuUsuarioActivity"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="178dp"
+        android:layout_height="27dp"
+        android:text="MENU SCRUM"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp" />
+    <TextView
+        android:id="@+id/cajaBienS"
+        android:layout_width="178dp"
+        android:layout_height="27dp"
+        android:text="Bienvenido :"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="16dp" />
+    <TextView
+        android:id="@+id/cajaBienRolS"
+        android:layout_width="178dp"
+        android:layout_height="27dp"
+        android:text="Rol :"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="16dp" />
+
+
+    <Button
+        android:id="@+id/btnAdmTarea"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:text="Administrar Tarea"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp" />
+    <Button
+        android:id="@+id/btnAdmUs"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:text="ADMINISTRAR USUARIO"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp" />
+    <Button
+        android:id="@+id/btnModCuenta"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:text="MODIFICAR CUENTA"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp" />
+    <Button
+        android:id="@+id/btnCrearPro"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:text="Crear Proyecto"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp" />
+
+    <Button
+        android:id="@+id/btnCerrarS"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="CERRAR SESION"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="16dp" />
+
+
+</LinearLayout>
+
