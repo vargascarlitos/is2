@@ -63,7 +63,9 @@ public class loginActivity extends AppCompatActivity  implements Response.Listen
                Toast.makeText(loginActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                 Intent menu = new Intent();
                 if (rol == 2) {
-                  menu = new Intent(loginActivity.this, menuUsuarioActivity.class);
+                    menu = new Intent(loginActivity.this, menuUsuarioActivity.class);
+                } else if (rol == 1) {
+                    menu = new Intent(loginActivity.this, MainScrumActivity.class);
                 }
                 menu.putExtra("nomUs", nomUs);
                 menu.putExtra("nomRol", nomRol);
@@ -77,7 +79,7 @@ public class loginActivity extends AppCompatActivity  implements Response.Listen
 
     }
     private void iniciarSesion(){
-        String URL = "http://169.254.118.241:8080/proyecto/webresources/pck_entidades.usuario/login";
+        String URL = "http://192.168.1.51:14606/proyecto/webresources/pck_entidades.usuario/login";
         String us = cajaUser.getText().toString();
         String pq = cajaPwd.getText().toString();
         JSONObject json = new JSONObject();

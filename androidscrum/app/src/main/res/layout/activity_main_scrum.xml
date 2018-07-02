@@ -15,7 +15,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="16dp" />
     <TextView
-        android:id="@+id/cajaBienS"
+        android:id="@+id/cajaBien"
         android:layout_width="178dp"
         android:layout_height="27dp"
         android:text="Bienvenido :"
@@ -23,7 +23,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="16dp" />
     <TextView
-        android:id="@+id/cajaBienRolS"
+        android:id="@+id/cajaBienRol"
         android:layout_width="178dp"
         android:layout_height="27dp"
         android:text="Rol :"
@@ -66,7 +66,7 @@
         android:layout_marginLeft="16dp" />
 
     <Button
-        android:id="@+id/btnCerrarS"
+        android:id="@+id/btnCerrarSe"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:text="CERRAR SESION"

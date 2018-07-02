@@ -58,7 +58,7 @@ public class tareaUsuario extends AppCompatActivity {
     }
 
     public void listarSprint(){
-        String URL = "http://169.254.118.241:8080/proyecto/webresources/pck_entidades.tarea/listartarea/"+idUs;
+        String URL = "http://192.168.1.51:14606/proyecto/webresources/pck_entidades.tarea/listartarea/"+idUs;
                 //path + "sprint/listar/miembro/"+idUser;
         rq = Volley.newRequestQueue(this);
         adapter.clear();

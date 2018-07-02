@@ -38,7 +38,7 @@ public class datoTareaUsuarioActivity extends AppCompatActivity {
     }
 
     public void modificarTareaUs() {
-        String URL =  "http://169.254.118.241:8080/proyecto/webresources/pck_entidades.tarea/editartareaus";
+        String URL =  "http://192.168.1.51:14606/proyecto/webresources/pck_entidades.tarea/editartareaus";
         String estado = cajaEstadonew.getText().toString();
         RequestQueue queue = Volley.newRequestQueue(this);
         JSONObject json = new JSONObject();
