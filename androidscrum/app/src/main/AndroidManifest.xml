@@ -22,7 +22,12 @@
         <activity android:name=".tareaUsuario" />
         <activity android:name=".datoTareaUsuarioActivity" />
         <activity android:name=".cuentaActivity" />
+<<<<<<< HEAD
         <activity android:name=".admUsuarioActivity"></activity>
+=======
+        <activity android:name=".MainScrumActivity" />
+        <activity android:name=".admTareaActivity"></activity>
+>>>>>>> 2408e84bcc74a7e2cf741a0f08c9604895c9802c
     </application>
 
 </manifest>
